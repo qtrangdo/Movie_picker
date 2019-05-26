@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Store } from './Store';
-import { IEpisode, IAction } from './interfaces';
+import { IEpisode, IAction, IEpisodeProps } from './interfaces';
 import './index.css';
-import { directive } from '@babel/types';
 
 const EpisodeList = React.lazy<any>(() => import('./EpisodeList'))
 
@@ -38,7 +37,7 @@ export default function App(): JSX.Element {
     return dispatch(dispatchObj);
   }
 
-  const props = {
+  const props: IEpisodeProps = {
     episodes: state.episodes,
     toggleFavAction,
     favorites: state.favorites    
