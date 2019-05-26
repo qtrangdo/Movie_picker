@@ -1,14 +1,5 @@
 import * as React from 'react';
-
-interface IState {
-  episodes: Array<''>,
-  favorites: Array<''>
-}
-
-interface IAction {
-  type: string,
-  payload: [],
-}
+import { IState, IAction } from './interfaces';
 
 const initialState: IState = {
   episodes: [],
@@ -21,6 +12,8 @@ function reducer(state: IState, action: IAction): IState {
   switch (action.type) {
     case 'FETCH_DATA':
       return { ...state, episodes: action.payload };
+    case 'ADD_FAV':
+      return { ...state, favorites: [...state.favorites, action.payload]}
     default:
       return state;
   }
