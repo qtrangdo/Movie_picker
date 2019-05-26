@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Store } from './Store';
 import { IEpisode, IAction, IEpisodeProps } from './interfaces';
+import { Link } from '@reach/router';
 import './index.css';
 
 const EpisodeList = React.lazy<any>(() => import('./EpisodeList'))
@@ -51,7 +52,8 @@ export default function App(): JSX.Element {
           <p>Pick your favorite episode!!</p>
         </div>
         <div>
-          Favorites(s): {state.favorites.length}
+          <Link to='/'>Home</Link>
+          <Link to='/faves'>Favorites(s): {state.favorites.length}</Link>
         </div>
       </header>
       <React.Suspense fallback={<div>Loading...</div>}>
